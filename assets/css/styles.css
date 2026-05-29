@@ -73,9 +73,9 @@ main {
   height: 42px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 8px;
-  background: var(--surface);
+  background: transparent;
   color: var(--accent-strong);
   font-weight: 800;
 }
@@ -122,13 +122,7 @@ main {
 }
 
 .home-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(11, 95, 89, 0.08), rgba(49, 93, 159, 0.04) 48%, rgba(247, 248, 243, 0)),
-    repeating-linear-gradient(90deg, rgba(24, 32, 29, 0.05) 0 1px, transparent 1px 96px);
-  z-index: -2;
+  content: none;
 }
 
 .home-hero::after {
@@ -622,9 +616,7 @@ main {
   }
 
   .home-hero::before {
-    background:
-      linear-gradient(180deg, rgba(11, 95, 89, 0.08), rgba(49, 93, 159, 0.04) 58%, rgba(247, 248, 243, 0)),
-      repeating-linear-gradient(90deg, rgba(24, 32, 29, 0.05) 0 1px, transparent 1px 72px);
+    content: none;
   }
 
   .hero-copy h1 {
