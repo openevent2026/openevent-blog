@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+{% assign page_lang = page.lang | default: 'zh-CN' %}
+{% if page_lang == 'en' or page_lang == 'en-US' %}
+  {% assign is_en = true %}
+{% else %}
+  {% assign is_en = false %}
+{% endif %}
+{% if is_en %}
+  {% assign back_url = '/en/' %}
+  {% assign back_label = 'Back to posts' %}
+  {% assign tag_aria = 'Post tags' %}
+  {% assign translation_label = 'Read in Chinese' %}
+{% else %}
+  {% assign back_url = '/' %}
+  {% assign back_label = '返回文章列表' %}
+  {% assign tag_aria = '文章标签' %}
+  {% assign translation_label = 'Read in English' %}
+{% endif %}
+
+<article class="post">
+  <header class="post-header">
+    <div class="post-kicker">
+      <a class="back-link" href="{{ back_url | relative_url }}">{{ back_label }}</a>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+    </div>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+    {% if page.alternate_url %}
+      <a class="translation-link" href="{{ page.alternate_url | relative_url }}">{{ translation_label }}</a>
+    {% endif %}
+    {% if page.tags %}
+      <div class="tag-list" aria-label="{{ tag_aria }}">
+        {% for tag in page.tags %}
+          <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>

@@ -1,0 +1,80 @@
+<!doctype html>
+{% assign page_lang = page.lang | default: site.lang | default: 'zh-CN' %}
+{% if page_lang == 'en' or page_lang == 'en-US' %}
+  {% assign is_en = true %}
+{% else %}
+  {% assign is_en = false %}
+{% endif %}
+{% if is_en %}
+  {% assign home_url = '/en/' %}
+  {% assign posts_label = 'Posts' %}
+  {% assign feed_url = '/feed-en.xml' %}
+  {% assign feed_label = 'RSS' %}
+  {% assign github_label = 'GitHub' %}
+  {% assign lang_label = '中文' %}
+  {% assign header_aria = 'Primary navigation' %}
+  {% assign home_aria = 'OpenEvent Blog home' %}
+  {% assign footer_text = 'OpenEvent notes on event-driven, log-first Agent infrastructure.' %}
+  {% assign footer_link = 'View on GitHub' %}
+{% else %}
+  {% assign home_url = '/' %}
+  {% assign posts_label = '文章' %}
+  {% assign feed_url = '/feed-zh.xml' %}
+  {% assign feed_label = 'RSS' %}
+  {% assign github_label = 'GitHub' %}
+  {% assign lang_label = 'English' %}
+  {% assign header_aria = '主导航' %}
+  {% assign home_aria = 'OpenEvent 技术博客首页' %}
+  {% assign footer_text = 'OpenEvent 技术博客记录事件驱动、日志先行的 Agent 框架与基础设施实践。' %}
+  {% assign footer_link = '在 GitHub 上查看' %}
+{% endif %}
+<html lang="{{ page_lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>{% if page.title and page.title != site.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace }}">
+    <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    {% if page.alternate_url %}
+      {% if is_en %}
+        <link rel="alternate" hreflang="zh-CN" href="{{ page.alternate_url | absolute_url }}">
+        <link rel="alternate" hreflang="en" href="{{ page.url | absolute_url }}">
+      {% else %}
+        <link rel="alternate" hreflang="zh-CN" href="{{ page.url | absolute_url }}">
+        <link rel="alternate" hreflang="en" href="{{ page.alternate_url | absolute_url }}">
+      {% endif %}
+    {% endif %}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ feed_url | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-mark" href="{{ home_url | relative_url }}" aria-label="{{ home_aria }}">
+        <span class="mark-symbol" aria-hidden="true">OE</span>
+        <span>
+          <strong>OpenEvent</strong>
+          <small>Tech Blog</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="{{ header_aria }}">
+        <a href="{{ home_url | relative_url }}">{{ posts_label }}</a>
+        <a href="{{ feed_url | relative_url }}">{{ feed_label }}</a>
+        <a href="{{ site.github_repo }}">{{ github_label }}</a>
+        {% if page.alternate_url %}
+          <a class="language-link" href="{{ page.alternate_url | relative_url }}">{{ lang_label }}</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <p>{{ footer_text }}</p>
+      <a href="{{ site.github_repo }}">{{ footer_link }}</a>
+    </footer>
+  </body>
+</html>

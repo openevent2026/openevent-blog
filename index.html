@@ -1,0 +1,28 @@
+---
+layout: default
+title: OpenEvent 技术博客
+lang: zh-CN
+alternate_url: /en/
+description: OpenEvent 关于事件驱动、日志先行的 Agent 框架与基础设施的技术博客。
+eyebrow: OpenEvent Technical Notes
+hero_title: 事件驱动、日志先行的 Agent 框架
+hero_description: OpenEvent 以不可变事件日志作为统一事实源，把工具执行、状态管理、通信协调和审计治理沉淀为长期稳定的 Agent 工程基座。
+hero_image_alt: OpenEvent 事件驱动 Agent 基座结构图
+repo_label: 查看项目
+posts_label: 阅读文章
+principles_label: OpenEvent 核心原则
+posts_eyebrow: Posts
+posts_heading: 最新文章
+tag_aria: 文章标签
+principles:
+  - code: 01
+    title: 事件驱动
+    text: 会话、文件变更、外部回调和定时信号都以事件进入统一日志，Agent 围绕事实流持续响应。
+  - code: 02
+    title: 日志先行
+    text: 工具调用、模型决策、权限校验和人工介入先写入持久化日志，再影响系统状态。
+  - code: 03
+    title: 模块协作
+    text: 确定性模块通过 Channel 和 Protocol 解耦演进，核心服务只维护顺序、权限和读写语义。
+---
+{% include home.html %}

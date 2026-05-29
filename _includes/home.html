@@ -1,0 +1,58 @@
+{% assign page_lang = page.lang | default: 'zh-CN' %}
+{% assign posts = site.posts | where: "lang", page_lang %}
+
+<section class="home-hero" style="--hero-image: url('{{ '/assets/images/openevent-hero.jpeg' | relative_url }}')">
+  <div class="hero-copy">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.hero_title }}</h1>
+    <p>{{ page.hero_description }}</p>
+    <div class="hero-actions">
+      <a class="button primary" href="{{ site.openevent_repo }}">{{ page.repo_label }}</a>
+      <a class="button" href="#post-index">{{ page.posts_label }}</a>
+    </div>
+  </div>
+  <figure class="hero-media">
+    <img src="{{ '/assets/images/openevent-hero.jpeg' | relative_url }}" alt="{{ page.hero_image_alt }}">
+  </figure>
+</section>
+
+<section class="principles" aria-label="{{ page.principles_label }}">
+  {% for item in page.principles %}
+    <article>
+      <span>{{ item.code }}</span>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.text }}</p>
+    </article>
+  {% endfor %}
+</section>
+
+<section id="post-index" class="post-index" aria-labelledby="post-index-title">
+  <div class="section-heading">
+    <p class="eyebrow">{{ page.posts_eyebrow }}</p>
+    <h2 id="post-index-title">{{ page.posts_heading }}</h2>
+  </div>
+
+  <div class="post-list">
+    {% for post in posts %}
+      <article class="post-card">
+        {% if post.image %}
+          <a class="post-thumb" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
+          </a>
+        {% endif %}
+        <div class="post-card-body">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 180 }}</p>
+          {% if post.tags %}
+            <div class="tag-list" aria-label="{{ page.tag_aria }}">
+              {% for tag in post.tags %}
+                <span>{{ tag }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

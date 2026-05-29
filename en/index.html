@@ -1,0 +1,28 @@
+---
+layout: default
+title: OpenEvent Blog
+lang: en
+alternate_url: /
+description: Technical notes on OpenEvent, an event-driven, log-first Agent framework.
+eyebrow: OpenEvent Technical Notes
+hero_title: Event-driven, log-first Agent framework
+hero_description: OpenEvent uses an immutable event log as the shared source of truth, turning tool execution, state management, communication, and auditability into a stable engineering foundation for Agent systems.
+hero_image_alt: OpenEvent event-driven Agent foundation diagram
+repo_label: View project
+posts_label: Read posts
+principles_label: OpenEvent principles
+posts_eyebrow: Posts
+posts_heading: Latest posts
+tag_aria: Post tags
+principles:
+  - code: 01
+    title: Event-driven
+    text: Sessions, file changes, callbacks, and timers all enter the same log as events, so Agents respond to a continuous stream of facts.
+  - code: 02
+    title: Log-first
+    text: Tool calls, model decisions, permission checks, and human overrides are written before they affect system state.
+  - code: 03
+    title: Modular collaboration
+    text: Deterministic modules evolve through Channels and Protocols while the core service owns ordering, access control, and read-write semantics.
+---
+{% include home.html %}

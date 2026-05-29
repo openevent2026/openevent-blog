@@ -1,0 +1,22 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>OpenEvent 技术博客</title>
+    <description>事件驱动、日志先行的 Agent 框架技术笔记。</description>
+    <link>{{ '/' | absolute_url }}</link>
+    <language>zh-CN</language>
+    {% assign posts = site.posts | where: "lang", "zh-CN" %}
+    {% for post in posts limit: 20 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.description | default: post.excerpt | strip_html | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | absolute_url }}</link>
+        <guid>{{ post.url | absolute_url }}</guid>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
