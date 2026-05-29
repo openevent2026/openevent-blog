@@ -11,8 +11,6 @@ tags:
   - OpenEvent
   - 事件驱动
   - 日志先行
-image: /assets/images/openevent-hero.jpeg
-image_alt: "OpenEvent 事件驱动 Agent 基座结构图"
 ---
 
 最近几年，Agent 项目层出不穷——从早期的 LangChain，到前段时间爆火的 OpenClaw。但热潮之下，一个尴尬的事实始终存在：真正在 Agent 架构层面沉淀为通用基础设施的，少之又少。

@@ -12,8 +12,6 @@ tags:
   - Event-driven
   - Log-first
   - Framework design
-image: /assets/images/agent-modules.png
-image_alt: "OpenEvent Agent module boundaries"
 ---
 
 ![Agent module boundaries]({{ '/assets/images/agent-modules.png' | relative_url }})

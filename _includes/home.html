@@ -1,7 +1,7 @@
 {% assign page_lang = page.lang | default: 'zh-CN' %}
 {% assign posts = site.posts | where: "lang", page_lang %}
 
-<section class="home-hero" style="--hero-image: url('{{ '/assets/images/openevent-hero.jpeg' | relative_url }}')">
+<section class="home-hero">
   <div class="hero-copy">
     <p class="eyebrow">{{ page.eyebrow }}</p>
     <h1>{{ page.hero_title }}</h1>
@@ -11,9 +11,6 @@
       <a class="button" href="#post-index">{{ page.posts_label }}</a>
     </div>
   </div>
-  <figure class="hero-media">
-    <img src="{{ '/assets/images/openevent-hero.jpeg' | relative_url }}" alt="{{ page.hero_image_alt }}">
-  </figure>
 </section>
 
 <section class="principles" aria-label="{{ page.principles_label }}">
@@ -35,11 +32,6 @@
   <div class="post-list">
     {% for post in posts %}
       <article class="post-card">
-        {% if post.image %}
-          <a class="post-thumb" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
-            <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title }}">
-          </a>
-        {% endif %}
         <div class="post-card-body">
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
           <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

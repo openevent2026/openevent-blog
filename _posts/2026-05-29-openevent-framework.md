@@ -12,8 +12,6 @@ tags:
   - 事件驱动
   - 日志先行
   - 框架设计
-image: /assets/images/agent-modules.png
-image_alt: "OpenEvent Agent 模块划分"
 ---
 
 ![Agent 模块划分]({{ '/assets/images/agent-modules.png' | relative_url }})

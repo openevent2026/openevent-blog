@@ -11,8 +11,6 @@ tags:
   - OpenEvent
   - Event-driven
   - Log-first
-image: /assets/images/openevent-hero.jpeg
-image_alt: "OpenEvent event-driven Agent foundation diagram"
 ---
 
 In the last few years, Agent projects have appeared one after another, from early frameworks such as LangChain to the recent wave around OpenClaw. Under that momentum sits an uncomfortable fact: very few of these efforts have turned Agent architecture into reusable, general-purpose infrastructure.

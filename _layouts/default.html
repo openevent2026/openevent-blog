@@ -45,7 +45,6 @@
   {% assign seo_title = page.title | append: ' | ' | append: site.title %}
 {% endif %}
 {% assign seo_description = page.description | default: site.description | strip_html | normalize_whitespace %}
-{% assign seo_image = page.image | default: site.image %}
 {% assign og_type = 'website' %}
 {% if page.layout == 'post' %}
   {% assign og_type = 'article' %}
@@ -82,11 +81,7 @@
     {% if page.alternate_url %}
       <meta property="og:locale:alternate" content="{{ alternate_locale }}">
     {% endif %}
-    {% if seo_image %}
-      <meta property="og:image" content="{{ seo_image | absolute_url }}">
-      <meta name="twitter:image" content="{{ seo_image | absolute_url }}">
-    {% endif %}
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ seo_title | escape }}">
     <meta name="twitter:description" content="{{ seo_description | escape }}">
     {% if page.layout == 'post' %}

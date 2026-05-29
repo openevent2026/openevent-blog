@@ -8,7 +8,6 @@ baseurl: "/openevent-blog"
 repository: openevent2026/openevent-blog
 github_repo: "https://github.com/openevent2026/openevent-blog"
 openevent_repo: "https://github.com/openevent2026/openevent"
-image: /assets/images/openevent-hero.jpeg
 logo: /assets/images/favicon.svg
 keywords: "OpenEvent, Agent framework, event-driven, log-first, 事件驱动, 日志先行, Agent 框架"
 
@@ -33,4 +32,3 @@ defaults:
     values:
       layout: post
       author: OpenEvent
-      image: /assets/images/openevent-hero.jpeg

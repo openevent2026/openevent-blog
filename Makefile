@@ -43,7 +43,6 @@ verify:
 	@test -f _posts/2026-05-22-agent-foundation-en.md
 	@test -f _posts/2026-05-29-openevent-framework.md
 	@test -f _posts/2026-05-29-openevent-framework-en.md
-	@test -f assets/images/openevent-hero.jpeg
 	@test -f assets/images/agent-modules.png
 	@test -f assets/images/openevent-view.png
 	@test -f assets/images/favicon.svg
