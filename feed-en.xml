@@ -2,11 +2,12 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenEvent Blog</title>
     <description>Event-driven, log-first Agent framework notes from OpenEvent.</description>
     <link>{{ '/en/' | absolute_url }}</link>
+    <atom:link href="{{ '/feed-en.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
     <language>en</language>
     {% assign posts = site.posts | where: "lang", "en" %}
     {% for post in posts limit: 20 %}

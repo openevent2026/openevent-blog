@@ -58,13 +58,23 @@ alternate_url: /posts/example/
 
 ## 本地检查
 
+首次本地构建前安装 Ruby、Bundler，然后安装依赖：
+
+```bash
+bundle install
+```
+
+运行结构检查：
+
 ```bash
 make verify
 ```
 
-如果本机安装了 Ruby/Jekyll，也可以运行：
+运行 Jekyll 构建和本地服务：
 
 ```bash
 make build
 make serve
 ```
+
+`make build` 会执行真实的 Jekyll 构建；如果本机没有 Ruby/Jekyll 依赖会直接失败，避免误以为已经完成构建。

@@ -2,17 +2,66 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>{{ '/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ '/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}" />
   </url>
   <url>
     <loc>{{ '/en/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ '/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}" />
+  </url>
+  <url>
+    <loc>{{ '/archive/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ '/archive/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/archive/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/archive/' | absolute_url }}" />
+  </url>
+  <url>
+    <loc>{{ '/en/archive/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ '/archive/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/archive/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/archive/' | absolute_url }}" />
+  </url>
+  <url>
+    <loc>{{ '/about/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ '/about/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/about/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/about/' | absolute_url }}" />
+  </url>
+  <url>
+    <loc>{{ '/en/about/' | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ '/about/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ '/en/about/' | absolute_url }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ '/about/' | absolute_url }}" />
   </url>
   {% for post in site.posts %}
     <url>
       <loc>{{ post.url | absolute_url }}</loc>
       <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% if post.alternate_url %}
+        {% assign post_lang = post.lang | default: site.lang %}
+        {% if post_lang == 'en' or post_lang == 'en-US' %}
+          <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ post.alternate_url | absolute_url }}" />
+          <xhtml:link rel="alternate" hreflang="en" href="{{ post.url | absolute_url }}" />
+          <xhtml:link rel="alternate" hreflang="x-default" href="{{ post.alternate_url | absolute_url }}" />
+        {% else %}
+          <xhtml:link rel="alternate" hreflang="zh-CN" href="{{ post.url | absolute_url }}" />
+          <xhtml:link rel="alternate" hreflang="en" href="{{ post.alternate_url | absolute_url }}" />
+          <xhtml:link rel="alternate" hreflang="x-default" href="{{ post.url | absolute_url }}" />
+        {% endif %}
+      {% endif %}
     </url>
   {% endfor %}
 </urlset>

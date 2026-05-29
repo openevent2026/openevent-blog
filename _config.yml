@@ -2,11 +2,14 @@ title: OpenEvent Blog
 description: Event-driven, log-first Agent framework notes from OpenEvent.
 lang: zh-CN
 timezone: Asia/Shanghai
+author: OpenEvent
 url: "https://openevent2026.github.io"
 baseurl: "/openevent-blog"
 repository: openevent2026/openevent-blog
 github_repo: "https://github.com/openevent2026/openevent-blog"
 openevent_repo: "https://github.com/openevent2026/openevent"
+image: /assets/images/openevent-hero.jpeg
+logo: /assets/images/favicon.svg
 keywords: "OpenEvent, Agent framework, event-driven, log-first, 事件驱动, 日志先行, Agent 框架"
 
 markdown: kramdown
@@ -15,6 +18,13 @@ kramdown:
   hard_wrap: false
 
 permalink: /:categories/:title/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - README.md
+  - vendor
 
 defaults:
   - scope:

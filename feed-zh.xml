@@ -2,11 +2,12 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OpenEvent 技术博客</title>
     <description>事件驱动、日志先行的 Agent 框架技术笔记。</description>
     <link>{{ '/' | absolute_url }}</link>
+    <atom:link href="{{ '/feed-zh.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
     {% assign posts = site.posts | where: "lang", "zh-CN" %}
     {% for post in posts limit: 20 %}

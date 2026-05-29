@@ -1,0 +1,58 @@
+---
+layout: default
+title: Post Archive
+lang: en
+alternate_url: /archive/
+description: English post archive and tag index for OpenEvent Blog.
+---
+
+{% assign posts = site.posts | where: "lang", page.lang %}
+{% assign sorted_tags = site.tags | sort %}
+
+<section class="simple-page archive-page">
+  <p class="eyebrow">Archive</p>
+  <h1>Post Archive</h1>
+  <p>Browse OpenEvent English posts by publication date and use tags to jump into related topics.</p>
+
+  <div class="archive-layout">
+    <div class="archive-list" aria-label="Post archive">
+      {% for post in posts %}
+        <article>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p>{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 160 }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+    <aside class="tag-panel" aria-label="Tag index">
+      <h2>Tags</h2>
+      <div class="tag-cloud">
+        {% for tag_pair in sorted_tags %}
+          {% assign tag_name = tag_pair[0] %}
+          {% assign tagged_posts = tag_pair[1] | where: "lang", page.lang %}
+          {% if tagged_posts.size > 0 %}
+            <a href="#tag-{{ forloop.index }}">{{ tag_name }} <span>{{ tagged_posts.size }}</span></a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </aside>
+  </div>
+
+  <div class="tag-sections">
+    {% for tag_pair in sorted_tags %}
+      {% assign tag_name = tag_pair[0] %}
+      {% assign tagged_posts = tag_pair[1] | where: "lang", page.lang %}
+      {% if tagged_posts.size > 0 %}
+        <section id="tag-{{ forloop.index }}">
+          <h2>{{ tag_name }}</h2>
+          <ul>
+            {% for post in tagged_posts %}
+              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
