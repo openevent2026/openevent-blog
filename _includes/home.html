@@ -13,16 +13,6 @@
   </div>
 </section>
 
-<section class="principles" aria-label="{{ page.principles_label }}">
-  {% for item in page.principles %}
-    <article>
-      <span>{{ item.code }}</span>
-      <h2>{{ item.title }}</h2>
-      <p>{{ item.text }}</p>
-    </article>
-  {% endfor %}
-</section>
-
 <section id="post-index" class="post-index" aria-labelledby="post-index-title">
   <div class="section-heading">
     <p class="eyebrow">{{ page.posts_eyebrow }}</p>
