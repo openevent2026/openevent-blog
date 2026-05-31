@@ -111,9 +111,9 @@ This path looks longer than "receive a message, call the model, reply". The extr
 
 The Demo's value is not the chat function itself. Its value is proving that OpenEvent's module boundaries can support a real Agent loop. IM, model proxy, Agent, and view panel are independently maintained. They are not tied together through private APIs; they collaborate around the same event log. Replacing the IM platform, replacing the model provider, or improving the Agent strategy should happen inside each module rather than requiring the whole system to be rebuilt.
 
-- IM module: [https://github.com/openevent2026/openevent-modules-im.git](https://github.com/openevent2026/openevent-modules-im.git)
-- Model Proxy: [https://github.com/openevent2026/openevent-modules-model-proxy.git](https://github.com/openevent2026/openevent-modules-model-proxy.git)
-- Agent Demo: [https://github.com/openevent2026/openevent-agent-demo.git](https://github.com/openevent2026/openevent-agent-demo.git)
+- IM module: [https://github.com/openevent-official/openevent-modules-im.git](https://github.com/openevent-official/openevent-modules-im.git)
+- Model Proxy: [https://github.com/openevent-official/openevent-modules-model-proxy.git](https://github.com/openevent-official/openevent-modules-model-proxy.git)
+- Agent Demo: [https://github.com/openevent-official/openevent-agent-demo.git](https://github.com/openevent-official/openevent-agent-demo.git)
 
 ## Event Query Panel
 
@@ -125,7 +125,7 @@ Its goal is different from an ordinary log page. Ordinary logs are point outputs
 
 In real debugging, engineers often need to answer questions such as: at which seq did the user message enter the system, when did the Agent prepare the model request, how did the model result return, and did the IM send action succeed? These events are spread across different Channels, and isolated log lines make the chain hard to reconstruct. openevent-view places them in one query view ordered by seq, making causality visible.
 
-Project: [https://github.com/openevent2026/openevent-view](https://github.com/openevent2026/openevent-view)
+Project: [https://github.com/openevent-official/openevent-view](https://github.com/openevent-official/openevent-view)
 
 ## Avoiding Traditional Event-driven Architecture Failure Modes
 

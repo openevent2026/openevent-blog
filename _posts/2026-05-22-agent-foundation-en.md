@@ -57,6 +57,6 @@ Based on event-driven and log-first thinking, I started the OpenEvent project. I
 
 Around this minimal deterministic center, I hope different Agent frameworks, toolchains, and runtimes can find a basis for collaboration. Engineering experience scattered across individual projects can then become reusable, auditable, and governable public infrastructure.
 
-Project: [https://github.com/openevent2026/openevent.git](https://github.com/openevent2026/openevent.git)
+Project: [https://github.com/openevent-official/openevent.git](https://github.com/openevent-official/openevent.git)
 
 The next post describes the key design of OpenEvent.

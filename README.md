@@ -9,13 +9,13 @@
 默认站点地址：
 
 ```text
-https://openevent2026.github.io/openevent-blog/
+https://openevent-official.github.io/openevent-blog/
 ```
 
 英文入口：
 
 ```text
-https://openevent2026.github.io/openevent-blog/en/
+https://openevent-official.github.io/openevent-blog/en/
 ```
 
 ## 写作
